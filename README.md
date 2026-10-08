@@ -9,6 +9,12 @@ Script `.bat` tự động sửa lỗi 9Router (MITM) làm Antigravity bị tr�
 3. Mở lại 9Router ở cửa sổ riêng, chờ MITM khởi động (tối đa 90 giây)
 4. Kiểm tra: port 20128 (9Router), port 443 (MITM), patch đã áp đúng chưa
 
+## Nguyên nhân gốc (xác định từ log thực tế)
+
+1. MITM lọc sai chunk → agent bị "terminated" (đã fix ở V8)
+2. Thiếu `uncaughtException` handler → MITM tự chết (đã fix)
+3. Error-frame xen giữa stream → language server panic (đã fix)
+
 ## Cách dùng
 
 1. Chuột phải file `NANG_CAP_9Router_sua_loi_vang.bat` → **Run as administrator**
